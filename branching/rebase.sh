@@ -1,8 +1,8 @@
-#! /bin/bash 
-# показать параметры командной строки
+#!/bin/bash
+# display command line options
 
-количество=1
-для  параметра  в  " $* " ;  do 
-    echo  " \$ * Parameter # $count = $param " 
-    count= $((  $count  +  1  ))
- выполнено
+count=1
+for param in "$*"; do
+    echo "\$* Parameter #$count = $param"
+    count=$(( $count + 1 ))
+done
