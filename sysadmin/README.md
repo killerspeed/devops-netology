@@ -1,11 +1,11 @@
-1.
+1)<br>
 Выполнено <br>
 5)<br>
  ram -1024<br>
  cpu 1<br>
  hdd 64 гб<br>
-6) 
-7) мой конфиг 
+6) <br>
+мой конфиг 
 ```
 Vagrant.configure("2") do |config|
     # usual vagrant config here
@@ -42,7 +42,7 @@ root@vagrant:/home/vagrant# type -a bash<br>
 bash is /tmp/new_path_directory/bash<br>
 bash is /usr/bin/bash<br>
 bash is /bin/bash<br>
-13)
+13)<br>
 at<br>
 запускает команды в заданное время.<br>
 batch<br>
