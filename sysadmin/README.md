@@ -26,15 +26,15 @@ end
 
 ignoreboth это сокращение для 2х директив ignorespace and ignoredups,<br>
  ignorespace — не сохранять строки начинающиеся с символа <пробел><br>
- ignoredups — не сохранять строки, совпадающие с последней выполненной командой
+ ignoredups — не сохранять строки, совпадающие с последней выполненной командой<br>
 9) 
- В man bash, не нашел, нашел в инте, как я понял будет создавть поледовательно например mkdir ./DIR_{0..100}.
-10) 
+ В man bash, не нашел, нашел в инте, как я понял будет создавть поледовательно например mkdir ./DIR_{0..100}.<br>
+10) <br>
  Ссылаясь на предыдущие задание с помощью touch {000001..100000}.txt<br>
--bash: /usr/bin/touch: Argument list too long - это слишком длинный список 
+-bash: /usr/bin/touch: Argument list too long - это слишком длинный список <br>
 11) 
- Проверяет условие у -d /tmp и возвращает ее статус (0 или 1), наличие каталога /tmp
-12) 
+ Проверяет условие у -d /tmp и возвращает ее статус (0 или 1), наличие каталога /tmp<br>
+12) <br>
  root@vagrant:/home/vagrant# mkdir /tmp/new_path_directory/<br>
 root@vagrant:/home/vagrant# cp /bin/bash /tmp/new_path_directory/<br>
 
