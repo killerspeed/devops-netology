@@ -19,3 +19,4 @@ Vagrant 2.2.19
 VirtualBox  
 Версия 6.1.30
 4
+++
