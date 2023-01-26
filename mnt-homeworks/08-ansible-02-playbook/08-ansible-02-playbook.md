@@ -1,4 +1,4 @@
-1) При выполнение команды происзодит ошибка  
+1) При выполнении домашнего задания возникла ошибка как решить её?
 ```yaml
 king@pow0555:~/devops-netology/mnt-homeworks/08-ansible-02-playbook/playbook$ ansible-playbook site.yml
 
@@ -30,7 +30,7 @@ PLAY RECAP *********************************************************************
 clickhouse-01              : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=1    ignored=0
 ```
 
-Вот эта ошибка я так понимаю ни на что не влияет, просто не может найти файл такой (логично такого файла нету)  
+Вот эта ошибка я так понимаю ни на что не влияет, просто не может найти файл такой (в репе нет такого файла по этому и не скачивается )  
 ```yaml
 failed: [clickhouse-01] (item=clickhouse-common-static) => {"ansible_loop_var": "item", "changed": false, "dest": 
   "./clickhouse-common-static-22.3.3.44.rpm", "elapsed": 0, "item": "clickhouse-common-static", "msg": "Request failed",
@@ -46,7 +46,7 @@ fatal: [clickhouse-01]: FAILED! => {"ansible_facts": {"pkg_mgr": "apt"}, "change
 "You should manually specify use_backend to tell the module whether to use the yum (yum3) or dnf (yum4) backend})"]}
 ```
 
-Потом я я понял вот эту строчку "ansible.builtin.yum" на "ansible.builtin.apt" и ошибка стала такой.
+Потом я поменял вот эту строчку "ansible.builtin.yum" на "ansible.builtin.apt" и ошибка стала такой.
 
 ```yaml
 TASK [Clickhouse | Install clickhouse packages] ************************************************************************
@@ -57,7 +57,7 @@ allow_change_held_packages, update_cache_retries, update_cache_retry_max_delay, 
 install_recommends (install-recommends), force, policy_rc_d, purge, state, allow_downgrade (allow-downgrade, allow-downgrades, 
 allow_downgrades), autoclean, deb, lock_timeout, package (name, pkg)."}
 ```
-НА сервер который послаю все все скачиватся  
+На сервер который послаю все все скачиватся  
 ```markdown
 vagrant@Server1:~$ ll
 total 240680
