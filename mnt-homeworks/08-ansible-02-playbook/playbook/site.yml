@@ -11,26 +11,19 @@
     - block:
         - name: Clickhouse | Get clickhouse distrib
           ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
-            dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
+            url: "https://packages.clickhouse.com/deb/pool/main/c/clickhouse/{{ item }}_{{ clickhouse_version }}_all.deb"
+            dest: "./{{ item }}-{{ clickhouse_version }}.deb"
           with_items: "{{ clickhouse_packages }}"
       rescue:
         - name: Clickhouse | Get clickhouse distrib
           ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
-            dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
-    - name: Clickhouse | Install clickhouse packages
-      become: true
-      ansible.builtin.apt:
-        name:
-          - ./clickhouse-common-static-{{ clickhouse_version }}.rpm
-          - ./clickhouse-client-{{ clickhouse_version }}.rpm
-          - ./clickhouse-server-{{ clickhouse_version }}.rpm
-        disable_gpg_check: true
-      notify: Start clickhouse service
-    - name: Clickhouse | Flush handlers
-      ansible.builtin.meta: flush_handlers
-    - name: Clickhouse | Create database
+            url: "https://packages.clickhouse.com/deb/pool/main/c/clickhouse/clickhouse-common-static_{{ clickhouse_version }}_amd64.deb"
+            dest: "./clickhouse-common-static-{{ clickhouse_version }}.deb"
+    - name: Install clickhouse packages
+      apt:
+        deb: "{{ item }}"
+      with_items: "{{ clickhouse_packages }}-{{ clickhouse_version }}.deb"
+    - name: Create database
       ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
       register: create_db
       failed_when: create_db.rc != 0 and create_db.rc !=82

@@ -2,5 +2,5 @@
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_host: 172.16.1.50
+      ansible_host: 172.16.1.51
       ansible_user: vagrant
